@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/api/v1/fx")
 public class FxRateCalcController {
@@ -26,7 +28,7 @@ public class FxRateCalcController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CalculateResponse> calculate(@RequestBody CalculateRequest request) {
+    public ResponseEntity<CalculateResponse> calculate(@RequestBody @Valid CalculateRequest request) {
         LOGGER.info("Request: {}", request);
         try {
             fxRateService.validateRequest(request);

@@ -26,8 +26,7 @@ public class FxRateServiceImpl implements FxRateService {
     }
     @Override
     public void validateRequest(CalculateRequest request) throws Exception {
-        if(StringUtils.isNullOrEmpty(request.getFromCurrency()) &&
-                StringUtils.isNullOrEmpty(String.valueOf(request.getAmount())) &&
+        if(StringUtils.isNullOrEmpty(request.getFromCurrency()) ||
                 StringUtils.isNullOrEmpty(request.getToCurrency())){
             throw new Exception("Invalid request.");
         }
