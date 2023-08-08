@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+
+# Exchange Rate sapi
+exchange:
+  access_key: 209db37b753878c57070b9e48b524bff
+  url: http://api.exchangeratesapi.io/v1/latest?access_key=${exchange.access_key}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+  swagger-ui:
+    path: /swagger-ui-custom.html
+    operationsSorter: method
+    enabled: true
